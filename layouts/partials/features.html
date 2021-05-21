@@ -1,0 +1,29 @@
+{{ if .Site.Data.homepage.features.enable }}
+<section class="splide section rad-animation-group pb-0" id="features">
+  <div class="container rad-fade-down">
+    <div class="splide__track">
+      <h2>{{.Site.Data.homepage.features.title}}</h2>
+      <ul class="splide__list">
+	{{ range .Site.Data.homepage.features.items }}
+	<li class="splide__slide row d-flex flex-column-reverse flex-md-row m-5">
+	  <div class="col-12 col-md-12 my-auto">
+	    <h3>{{.name}}</h3>
+	    <small><u>Feature</u></small>
+	    <p class="mt-3 bold">
+	    {{.description | safeHTML}}
+	    </p>
+	    {{ if .highlights }}
+	    <ul class="list-group">
+	      {{ range .highlights }}
+	      <li class="list-group-item">{{.}}</li>
+	      {{end}}
+	    </ul>
+	    {{ end }}
+	  </div>
+	</li>
+	{{end}}
+      </ul>
+    </div>
+  </div>
+</section>
+{{end}}

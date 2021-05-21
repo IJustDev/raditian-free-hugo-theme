@@ -1,1 +1,12 @@
 /* You can customize theme styles here */
+li:before {
+  content: none !important;
+}
+
+.splide__pagination__page.is-active {
+  background-color: #e93e34 !important;
+}
+
+.list-group-item {
+  margin: 0px !important;
+}

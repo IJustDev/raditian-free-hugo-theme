@@ -1,0 +1,65 @@
+{{define "main"}}
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="row d-flex flex-md-row flex-column">
+      <div class="d-flex col-12 col-md-6 flex-column">
+	<h3>Bestellübersicht</h3>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Position</th>
+	      <th>Wert</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    {{range .Site.Data.homepage.checkout.positions}}
+	    <tr>
+	      <td>
+		{{.name}}
+	      </td>
+	      <td>
+		{{.value}}
+	      </td>
+	    </tr>
+	    {{end}}
+	    <tr>
+	      <td class="pt-4 font-weight-bold">Total</td>
+	      <td class="pt-4 font-weight-bold">{{.Site.Data.homepage.checkout.total}}</td>
+	    </tr>
+	  </tbody>
+	</table>
+	<p class="mt-5"></p>
+	<p>{{.Site.Data.homepage.checkout.alsoIncluded}}</p>
+	<ul>
+	  {{range .Site.Data.homepage.checkout.features}}
+	  <li>{{.}}</li>
+	  {{end}}
+	</ul>
+      </div>
+      <div class="d-flex col-12 col-md-8 col-lg-7 col-xl-6 flex-column justify-content-center">
+	<div id="paypal-button-container"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="{{.Site.Data.homepage.checkout.ppClientSdk}}"></script>
+
+<script>
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      return actions.order.create({
+	purchase_units: [{
+	  amount: {
+	    value: '89.99'
+	  }
+	}]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+	alert('Transaction completed by ' + details.payer.name.given_name);
+      });
+    }
+  }).render('#paypal-button-container'); // Display payment options on your web page
+</script>
+{{end}}

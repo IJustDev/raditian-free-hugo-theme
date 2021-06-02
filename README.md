@@ -1,11 +1,12 @@
-# Raditian Free Hugo Theme
-###### Raditian Hugo Theme for Personal Websites
+# Raditian Product Hugo Theme
+###### Raditian Hugo Theme for Product Websites
 
-A free Hugo Theme by Radity: Modern, Fast, Fresh and of course responsive.
+**This is a fork with modifications to match the requirements of a commercial SaaS product.**
 
-Demo: https://raditian-hugo.radity.com
-
-<img src="https://raditycmswebsite-live-5f5ab2ec57ec4907b-b52c0bb.divio-media.net/filer_public/73/76/7376fcbd-46ff-4e8b-85b6-e4f9175658ad/01_-_mainpage_exportable_copy_31x_2.png"  width="100%" alt="raditian-free-hugo-theme">
+This theme contains following modifications and new features that should be used for a product landing page:
+- Checkout page (/checkout) with `PayPal SDK` integration (insert your clientid in data/homepage.yml)
+- Features section (Slick Slider for configurable feature showcase)
+- Pricing section that contains a configurable price breakdown
 
 ## Download
 
